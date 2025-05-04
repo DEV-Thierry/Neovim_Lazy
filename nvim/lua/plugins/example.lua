@@ -1,7 +1,13 @@
-if true then
-  return {}
-end
+-- since this is just an example spec, don't actually load anything here and return an empty spec
+-- stylua: ignore
+if true then return {} end
 
+-- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
+--
+-- In your plugin files, you can:
+-- * add extra plugins
+-- * disable/enabled LazyVim plugins
+-- * override the configuration of LazyVim plugins
 return {
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
@@ -31,10 +37,6 @@ return {
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })
-      opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
-        ["<C-j>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").select_behavior.insert }),
-        ["<C-k>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").select_behavior.insert }),
-      })
     end,
   },
 

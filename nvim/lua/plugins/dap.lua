@@ -6,7 +6,7 @@ return {
     if not dap.adapters["netcoredbg"] then
       require("dap").adapters["netcoredbg"] = {
         type = "executable",
-        command = "T:/netcoredbg/netcoredbg.exe",
+        command = "/usr/local/netcoredbg",
         args = { "--interpreter=vscode" },
         options = {
           detached = false,
@@ -17,24 +17,27 @@ return {
       dap.configurations[lang] = {
         {
           type = "netcoredbg",
-          name = "Launch CapriSGR (Dev on 5226)",
+          name = "launch caprisgr (dev on 5226)",
           request = "launch",
 
-          -- Aponta direto pro seu binário
-          program = "T:/Annexus/CAPRI-SGR/CapriSGR/CapriSGR/CapriSGR.Server/bin/Debug/net9.0/CapriSGR.Server.dll",
+          program = function()
+            return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net9.0", "file")
+          end,
+          -- program = "annexus/caprisgr/caprisgr/caprisgr.server/bin/debug/net9.0/caprisgr.server.dll",
+          -- program = "/mnt/t/annexus/capri-sgr/caprisgr/caprisgr/caprisgr.server/bin/debug/net9.0/caprisgr.server.dll",
 
-          -- porta e URLs
+          -- porta e urls
           args = { "--urls", "http://localhost:5226" },
 
           -- diretório de trabalho
-          cwd = "T:/Annexus/CAPRI-SGR/CapriSGR/CapriSGR/CapriSGR.Server",
+          cwd = "t:/annexus/capri-sgr/caprisgr/caprisgr/caprisgr.server",
 
           -- variável de ambiente
           env = {
-            ASPNETCORE_ENVIRONMENT = "Development",
+            aspnetcore_environment = "development",
           },
 
-          stopAtEntry = false,
+          stopatentry = false,
         },
       }
     end
