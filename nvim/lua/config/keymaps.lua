@@ -47,3 +47,5 @@ vim.api.nvim_set_keymap("n", "sh", "<C-w>h", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "sj", "<C-w>j", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "sk", "<C-w>k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "sl", "<C-w>l", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "sd", ":close<CR>", { noremap = true, silent = true })
