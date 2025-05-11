@@ -8,7 +8,6 @@ Este guia cobre a instalação e configuração do Neovim com LazyVim, integraç
 
 * Ubuntu instalado no WSL (Windows Subsystem for Linux)
 * Git instalado
-* Conexão com a internet
 
 ---
 
