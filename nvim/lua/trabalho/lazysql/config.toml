@@ -1,0 +1,16 @@
+[application]
+DefaultPageSize = 300
+DisableSidebar = false
+SidebarOverlay = false
+
+[[database]]
+Name = 'capri'
+URL = 'sqlserver://CapriDev:@Capri@@191.232.245.55:1433/Capri_GestaoAssociacao'
+Provider = 'sqlserver'
+Username = ''
+Password = ''
+Hostname = ''
+Port = ''
+DBName = 'Capri_GestaoAssociacao'
+URLParams = ''
+Commands = []

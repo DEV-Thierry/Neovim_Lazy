@@ -4,6 +4,28 @@
 --
 local dap = require("dap")
 
+vim.keymap.set("n", "<C-t>", function()
+    local Terminal = require("toggleterm.terminal").Terminal
+    local lazy_sql = Terminal:new({
+        cmd = "lazysql",
+        dir = vim.fn.getcwd(),
+        direction = "float",
+        float_opts = {
+            border = "rounded",
+            title = "Lazysql",
+            title_pos = "center",
+            width = math.floor(vim.o.columns * 0.9), -- 90% da largura da tela
+            height = math.floor(vim.o.lines * 0.8),
+        },
+        on_open = function(term)
+            vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
+        end,
+        on_close = function() end,
+        hidden = true,
+    })
+    lazy_sql:toggle()
+end, { desc = "Lazysql" })
+
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Sair do modo insert" })
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Sair do modo insert" })
 vim.keymap.set("n", "<C-f>", function()
