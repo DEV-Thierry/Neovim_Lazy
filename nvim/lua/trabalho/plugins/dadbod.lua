@@ -12,7 +12,8 @@ return {
     },
     init = function()
         vim.g.dbs = {
-            dev = "sqlserver://CapriDev:@Capri@@191.232.245.55/Capri_GestaoAssociacao?encrypt=true&trustServerCertificate=true",
+            -- dev = "sqlserver://CapriDev:@Capri@@191.232.245.55/Capri_GestaoAssociacao?encrypt=true&trustServerCertificate=true",
+            dev = "sqlserver://191.232.245.55;databaseName=Capri_GestaoAssociacao;user=CapriDev;password=@Capri@;encrypt=true;trustServerCertificate=true",
         }
 
         -- Your DBUI configuration
